@@ -61,6 +61,8 @@ Mould is a menu bar app (the petri dish icon) with no Dock icon. The menu has:
 - **Hide During Screenshots** (on by default): when you press Space in ⌘⇧4 to pick a window, the mould turns invisible so the picker sees the window instead of the mould-covered screen, and it returns 4 seconds after the capture. ⌘⇧3 and ⌘⇧4 region screenshots keep the mould on them.
 - **Open at Login**
 
+Can't see the icon? It may be behind the notch, or switched off under System Settings → Menu Bar. Open Mould again (from Finder, Spotlight or `open -a Mould`) and the same menu appears at the pointer.
+
 The hotkey uses Carbon's `RegisterEventHotKey`, so it doesn't need Accessibility permission. The overlay ignores the mouse, so you can keep working through the mould, if you can stand it.
 
 ## Development

@@ -51,6 +51,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         sessionMonitor?.stop()
     }
 
+    /// Opening Mould again while it runs shows the menu at the pointer, so it stays reachable when
+    /// the menu bar hides the icon (behind the notch, or switched off in System Settings → Menu Bar).
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        DispatchQueue.main.async { [weak self] in
+            guard let menu = self?.statusItem?.menu else { return }
+            NSApp.activate()
+            menu.popUp(positioning: nil, at: NSEvent.mouseLocation, in: nil)
+        }
+        return false
+    }
+
     // MARK: - Menu bar
 
     private func setUpStatusItem() {
